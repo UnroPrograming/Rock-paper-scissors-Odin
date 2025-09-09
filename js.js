@@ -1,9 +1,7 @@
 let humanPoints = 0;
 let machinePoints = 0;
 
-console.log("¿Estoy cargando code.js?");
 startGame(5);
-
 
 function startGame(rounds) {
     
@@ -27,7 +25,10 @@ function playRound() {
 
     let roundResult = compareChoices(humansChoice, computersChoice);
 
-    console.log(roundResult);
+    console.log(`Humans choice ----> ${humansChoice}`);
+    console.log(`Machine choice ----> ${computersChoice}`);
+    console.log("---------------------------------------------------------------");
+    console.log(`Result ----> ${roundResult}`);
 }
 
 
