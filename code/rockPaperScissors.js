@@ -1,35 +1,22 @@
 let humanPoints = 0;
 let machinePoints = 0;
 
-startGame(5);
+// startGame(5);
 
-function startGame(rounds) {
+// function startGame(rounds) {
     
-    while (humanPoints < rounds && machinePoints < rounds)
-    {
-        playRound();
-    }
+//     while (humanPoints < rounds && machinePoints < rounds)
+//     {
+//         playRound();
+//     }
 
-    if (humanPoints == rounds){
-        console.log("Human wins !!!!");
-    }
-    else {
-        console.log("Machine wins !!!!");
-    }
-}
-
-
-function playRound() {
-    let humansChoice = getHumanChoice();
-    let computersChoice = getComputerChoice();
-
-    let roundResult = compareChoices(humansChoice, computersChoice);
-
-    console.log(`Humans choice ----> ${humansChoice}`);
-    console.log(`Machine choice ----> ${computersChoice}`);
-    console.log("---------------------------------------------------------------");
-    console.log(`Result ----> ${roundResult}`);
-}
+//     if (humanPoints == rounds){
+//         console.log("Human wins !!!!");
+//     }
+//     else {
+//         console.log("Machine wins !!!!");
+//     }
+// }
 
 
 /**
@@ -64,7 +51,7 @@ function getRandomInt(max) {
  * @returns {string} "Rock | Paper | Scissors"
  */
 function getHumanChoice() {
-    return window.prompt("Rock | Paper | Scissors");
+    //return window.prompt("Rock | Paper | Scissors");
 }
 
 /**
@@ -90,3 +77,6 @@ function compareChoices(humansChoice, machinesChoice) {
         return "Machine wins the round";
     }
 }
+
+//Exportamos las funciones para que se puedan usar fuera de la clase
+export {getComputerChoice, compareChoices};
