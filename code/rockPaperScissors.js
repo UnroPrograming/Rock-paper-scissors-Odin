@@ -1,24 +1,3 @@
-let humanPoints = 0;
-let machinePoints = 0;
-
-// startGame(5);
-
-// function startGame(rounds) {
-    
-//     while (humanPoints < rounds && machinePoints < rounds)
-//     {
-//         playRound();
-//     }
-
-//     if (humanPoints == rounds){
-//         console.log("Human wins !!!!");
-//     }
-//     else {
-//         console.log("Machine wins !!!!");
-//     }
-// }
-
-
 /**
  * Obtiene la decisión de la máquina entre pieda papel o tijeras
  * @returns {string} "Rock | Paper | Scissors"
@@ -47,21 +26,13 @@ function getRandomInt(max) {
 }
 
 /**
- * Devuelve la decisión del usuario mediante un prompt
- * @returns {string} "Rock | Paper | Scissors"
- */
-function getHumanChoice() {
-    //return window.prompt("Rock | Paper | Scissors");
-}
-
-/**
- * Compara las elecciones del humano y la máquina y determina el ganador
- * @param {string} humansChoice - Elección del humano
- * @param {string} machinesChoice - Elección de la máquina
+ * Compara las elecciones del playero y la máquina y determina el ganador
+ * @param {string} playerChoice - Elección del playero
+ * @param {string} cpuChoice - Elección de la máquina
  * @returns {string} Resultado de la ronda
  */
-function compareChoices(humansChoice, machinesChoice) {
-    if (humansChoice === machinesChoice) return "Draw";
+function compareChoices(playerChoice, cpuChoice) {
+    if (playerChoice === cpuChoice) return "Draw";
 
     const rules = {
         Rock: "Scissors",
@@ -69,12 +40,10 @@ function compareChoices(humansChoice, machinesChoice) {
         Scissors: "Paper"
     };
 
-    if (rules[humansChoice] === machinesChoice) {
-        humanPoints ++;
-        return "Human wins the round";
+    if (rules[playerChoice] === cpuChoice) {
+        return "Player";
     } else {
-        machinePoints ++;
-        return "Machine wins the round";
+        return "Cpu;"
     }
 }
 
