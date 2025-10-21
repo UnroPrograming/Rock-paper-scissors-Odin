@@ -13,19 +13,19 @@
     <div class="main">
         <div class="main-container">
             <div class="text-container">
-                <div class="main-text">Choose an option</div>
-                <div class="main-sub-text">First to score 5 points wins the game</div>
+                <h1 class="main-text">Choose an option</h1>
+                <h2 class="main-sub-text">First to score 5 points wins the game</h2>
             </div>
 
             <div class="result-container">
                 <div class="result-element">
                     <img src="img/interrogacion.jpg" class="result-img" id="player-choice" alt="player-choice">
-                    <div class="player-score">Player: 0</div>
+                    <p class="player-score">Player: 0</p>
                 </div>
 
                 <div class="result-element">
                     <img src="img/interrogacion.jpg" class="result-img" id="cpu-choice" alt="cpu-choice">
-                    <div class="cpu-score">CPU: 0</div>
+                    <p class="cpu-score">CPU: 0</p>
                 </div>
             </div>
             
@@ -34,6 +34,13 @@
                 <button class="btn-play" id="Paper"><img src="img/papel_player.png" class="btn-img"></button>
                 <button class="btn-play" id="Scissors"><img src="img/tijeras_player.png" class="btn-img"></button>
             </div>
+        </div>
+    </div>
+
+    <div class="overlay hidden">
+        <div class="popup">
+            <h1 class="popup-txt">Game over!</h1>
+            <button class="popup-btn">Play again</button>
         </div>
     </div>
 
