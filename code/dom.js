@@ -5,7 +5,7 @@ import { getComputerChoice, compareChoices } from './rockPaperScissors.js';
 const buttons = document.querySelectorAll(".btn-play");
 
 const mainTxt = document.querySelector(".main-text");
-const mainSubTxt = document.querySelector(".main-sub_text");
+const mainSubTxt = document.querySelector(".main-sub-text");
 
 const playerScoreTxt = document.querySelector(".player-score");
 const cpuScoreTxt = document.querySelector(".cpu-score");
@@ -99,16 +99,16 @@ function changeScoreTxt(result, playerChoice, cpuChoice) {
             sub_text += " beats ";
 
             playerPoints++;
-            playerScoreTxt.textContent = playerPoints;
+            playerScoreTxt.textContent = "Player: " + playerPoints;
 
             break;
 
         case "Cpu":
             mainTxt.textContent = "You lost!";
-            sub_text += " loses against";
+            sub_text += " loses against ";
 
             cpuPoints++;
-            cpuScoreTxt.textContent = cpuPoints;
+            cpuScoreTxt.textContent = "CPU: " + cpuPoints;
 
             break;
     }

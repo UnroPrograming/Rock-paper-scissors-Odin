@@ -43,7 +43,7 @@ function compareChoices(playerChoice, cpuChoice) {
     if (rules[playerChoice] === cpuChoice) {
         return "Player";
     } else {
-        return "Cpu;"
+        return "Cpu";
     }
 }
 
