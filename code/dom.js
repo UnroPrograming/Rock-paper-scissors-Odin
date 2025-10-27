@@ -130,8 +130,8 @@ function playAgain() {
     playerScoreTxt.textContent  = "Player: 0";
     cpuScoreTxt.textContent  = "CPU: 0";
 
-    playerChoiceImg.src = "img/interrogacion.jpg";
-    cpuChoiceImg.src = "img/interrogacion.jpg";
+    playerChoiceImg.src = "img/interrogacion.png";
+    cpuChoiceImg.src = "img/interrogacion.png";
 
     toogleVisibilityPopUp();
 }
