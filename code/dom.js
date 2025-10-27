@@ -13,6 +13,10 @@ const cpuScoreTxt = document.querySelector(".cpu-score");
 const playerChoiceImg = document.querySelector("#player-choice");
 const cpuChoiceImg = document.querySelector("#cpu-choice");
 
+const overlayDiv = document.querySelector(".overlay");
+const popUpTittleTxt = document.querySelector(".popup-txt");
+const popUpPlayAgainBtn = document.querySelector(".popup-btn");
+
 let playerPoints = 0;
 let cpuPoints = 0;
 
@@ -26,6 +30,10 @@ buttons.forEach(button => {
     });
 });
 
+popUpPlayAgainBtn.addEventListener("click", () => {
+    playAgain();
+});
+
 //#endregion
 
 /**
@@ -36,12 +44,19 @@ function playRound(button) {
     let playerChoice = button.id;
     let cpuChoice = getComputerChoice();
 
+    //Cambiamos las imágenes de la UI
     changeplayerImg(playerChoice);
     changeCpuImg(cpuChoice);
 
+    //Plantamos los resultados en la UI
     let roundResult = compareChoices(playerChoice, cpuChoice);
-    
     changeScoreTxt(roundResult, playerChoice, cpuChoice);
+
+    //Si alguno ha llegado a 5 puntos salta el popUp de gameOver
+    if (playerPoints === 5)
+        showGameOverPopUp("Player");
+    else if (cpuPoints == 5)
+        showGameOverPopUp("CPU");
 }
 
 /**
@@ -115,4 +130,30 @@ function changeScoreTxt(result, playerChoice, cpuChoice) {
 
     sub_text += cpuChoice;
     mainSubTxt.textContent = sub_text;
+}
+
+/**
+ * Pone visible el popUp de fin del juego y actualiza el texto del ganador
+ * @param {string} winner 
+ */
+
+function showGameOverPopUp(winner) {
+    updateVisibilityPopUp();
+    popUpTittleTxt.textContent = winner + " wins";
+}
+
+function playAgain() {
+    mainTxt.textContent  = "Choose an option";
+    mainSubTxt.textContent  = "First to score 5 points wins the game";
+
+    playerScoreTxt.textContent  = "Player: 0";
+    cpuScoreTxt.textContent  = "CPU: 0";
+
+    playerChoiceImg.src, cpuChoiceImg.src = "img/interrogacion.jpg"
+
+    updateVisibilityPopUp();
+}
+
+function updateVisibilityPopUp() {
+    overlayDiv.classList.toggle("hidden");
 }
