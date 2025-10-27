@@ -130,6 +130,9 @@ function playAgain() {
     playerScoreTxt.textContent  = "Player: 0";
     cpuScoreTxt.textContent  = "CPU: 0";
 
+    cpuPoints = 0;
+    playerPoints = 0;
+
     playerChoiceImg.src = "img/interrogacion.png";
     cpuChoiceImg.src = "img/interrogacion.png";
 
