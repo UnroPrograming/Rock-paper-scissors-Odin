@@ -20,6 +20,12 @@ const popUpPlayAgainBtn = document.querySelector(".popup-btn");
 let playerPoints = 0;
 let cpuPoints = 0;
 
+const imgMap = {
+  Rock: "img/piedra",
+  Paper: "img/papel",
+  Scissors: "img/tijeras"
+};
+
 //#endregion
 
 //#region -> Events
@@ -45,8 +51,8 @@ function playRound(button) {
     let cpuChoice = getComputerChoice();
 
     //Cambiamos las imágenes de la UI
-    changeplayerImg(playerChoice);
-    changeCpuImg(cpuChoice);
+    setChoiceImg(playerChoiceImg, playerChoice, "player");
+    setChoiceImg(cpuChoiceImg, cpuChoice, "cpu");
 
     //Plantamos los resultados en la UI
     let roundResult = compareChoices(playerChoice, cpuChoice);
@@ -55,44 +61,19 @@ function playRound(button) {
     //Si alguno ha llegado a 5 puntos salta el popUp de gameOver
     if (playerPoints === 5)
         showGameOverPopUp("Player");
-    else if (cpuPoints == 5)
+    else if (cpuPoints === 5)
         showGameOverPopUp("CPU");
 }
 
-/**
- * Cambio de imagen para playero
- * @param {string} playerChoice 
- */
-function changeplayerImg(playerChoice) { 
-    switch(playerChoice) {
-        case "Rock":
-            playerChoiceImg.src = "img/piedra_player.png";
-            break;    
-        case "Paper":
-            playerChoiceImg.src = "img/papel_player.png";
-            break;
-        case "Scissors":
-            playerChoiceImg.src = "img/tijeras_player.png";
-            break;
-    }
-}
 
 /**
- * Cambio de imagen para cpu
- * @param {string} computersChoice 
+ * Cambia la imagen en la UI ("HTMLImageElement") en función de la "choice" del "owner"
+ * @param {HTMLImageElement} imgElement 
+ * @param {string} choice 
+ * @param {string} owner 
  */
-function changeCpuImg(computersChoice) { 
-    switch(computersChoice) {
-        case "Rock":
-            cpuChoiceImg.src = "img/piedra_cpu.png";
-            break;
-        case "Paper":
-            cpuChoiceImg.src = "img/papel_cpu.png";
-            break;
-        case "Scissors":
-            cpuChoiceImg.src = "img/tijeras_cpu.png";
-            break;
-    }
+function setChoiceImg(imgElement, choice, owner) {
+  imgElement.src = `${imgMap[choice]}_${owner}.png`;
 }
 
 /**
@@ -138,7 +119,7 @@ function changeScoreTxt(result, playerChoice, cpuChoice) {
  */
 
 function showGameOverPopUp(winner) {
-    updateVisibilityPopUp();
+    toogleVisibilityPopUp();
     popUpTittleTxt.textContent = winner + " wins";
 }
 
@@ -149,11 +130,12 @@ function playAgain() {
     playerScoreTxt.textContent  = "Player: 0";
     cpuScoreTxt.textContent  = "CPU: 0";
 
-    playerChoiceImg.src, cpuChoiceImg.src = "img/interrogacion.jpg"
+    playerChoiceImg.src = "img/interrogacion.jpg";
+    cpuChoiceImg.src = "img/interrogacion.jpg";
 
-    updateVisibilityPopUp();
+    toogleVisibilityPopUp();
 }
 
-function updateVisibilityPopUp() {
+function toogleVisibilityPopUp() {
     overlayDiv.classList.toggle("hidden");
 }
